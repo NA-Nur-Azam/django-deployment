@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>{{ title }}</title>
+	<link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+</head>
+<body>
+					<div class="menu">
+						<ul>
+							<li><a href="{% url 'LoginApp:index' %}">Home Page</a></li>
+						</ul>
+						{% if user.is_authenticated %}
+						<ul>
+							<li><a href="{% url 'LoginApp:logout' %}">logout</a></li>
+						</ul>
+						{% else %}
+						<ul>
+							<li><a href="{% url 'LoginApp:register' %}">Register</a></li>
+						</ul>
+						<ul>
+							<li><a href="{% url 'LoginApp:login' %}">Login</a></li>
+						</ul>
+						{% endif %}
+
+					</div>
+    <div class="container">
+      {% block body_block %}
+
+      {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'Login_App/base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+<p>Hi {{ user_basic_info.username }},</p>
+<p>Email Address :{{ user_basic_info.email }}</p>
+<p><a href="{{ user_more_info.facebook_id }}">Facebook Link </a></p>
+<img src="/media/{{ user_more_info.profile_pic }}" width="200px">
+{% else %}
+<h2>You are not loged in!</h2>
+{% endif %}
+{% endblock %}
